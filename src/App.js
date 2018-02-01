@@ -18,9 +18,10 @@ class App extends Component {
 
      changePassword(event){
        this.setState({
-           password: event.target.value
+           password: event.target.value,
        })
     }
+
     changeUsername(event)
     {
         this.state({
@@ -28,25 +29,38 @@ class App extends Component {
         })
     }
 
+
 componentDidUpdate(){
-       console.log(this.state);
-       console.log(environment);
+
        environment.users.push({
            username: this.state.username,
            password: this.state.password,
        });
-    console.log(environment);
 }
 
   render() {
 
+
+     function onSubmit(e) {
+
+         e.preventDefault();
+         var username = this.state.username;
+         var pass=this.state.password;
+         environment.users.forEach( (el) =>{
+                console.log(el);
+             if(username === el.username && pass === el.password)
+                 console.log("succes");
+         })
+
+      }
+
     return (
       <div className="App">
-          <h1>Titlu</h1>
+          <h1>Login</h1>
           <Form horizontal>
-              <FormGroup controlId="formHorizontalEmail">
+              <FormGroup>
                   <Col componentClass={ControlLabel} sm={2}>
-                      Email
+                      Username
                   </Col>
                   <Col sm={10}>
                       <FormControl type="email" placeholder="Email" />
@@ -65,7 +79,7 @@ componentDidUpdate(){
 
               <FormGroup>
                   <Col smOffset={2} sm={10}>
-                      <Button type="submit">Sign in</Button>
+                      <Button type="submit" onClick={onSubmit}>Sign in</Button>
                   </Col>
               </FormGroup>
           </Form>

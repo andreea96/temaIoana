@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './test';
 import registerServiceWorker from './registerServiceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
+import Registration from "./Registration";
+require('dotenv').config();
+ReactDOM.render(<Registration />, document.getElementById('root'));
 registerServiceWorker();
