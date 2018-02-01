@@ -1,4 +1,4 @@
-export let environment={
+export let environments={
     production: false,
     users: [
         {
@@ -20,4 +20,68 @@ export let environment={
             "attendance" : []
         }
     ],
+    laboratories: [
+        {
+            "name": "AWJ",
+            "dates": [
+                {
+                    "day": "Monday",
+                    "hour": 1300
+                },
+                {
+                    "day": "Friday",
+                    "hour": 1800
+                }
+            ],
+            "groups": ["322AB", "322AC"],
+            "id": "111"
+        },
+        {
+            "name": "BD",
+            "dates": [
+                {
+                    "day": "Monday",
+                    "hour": 1100
+                },
+                {
+                    "day": "Friday",
+                    "hour": 1000
+                }
+            ],
+            "groups": ["322AA"],
+            "id": "112"
+        }
+    ],
+    courses: [
+        {
+            "name": "AWJ",
+            "dates": [
+                {
+                    "day": "Monday",
+                    "hour": 1300
+                },
+                {
+                    "day": "Friday",
+                    "hour": 1800
+                }
+            ],
+            "groups": ["322AB", "322AC"],
+            "id": "113"
+        },
+        {
+            "name": "BD",
+            "dates": [
+                {
+                    "day": "Monday",
+                    "hour": 1100
+                },
+                {
+                    "day": "Friday",
+                    "hour": 1000
+                }
+            ],
+            "groups": ["322AA"],
+            "id": "114"
+        }
+    ]
 }
