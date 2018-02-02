@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import Registration from "./Registration";
 import {BrowserRouter,Switch} from 'react-router-dom';
-
-import Routes from './routes';
 import Navigation from "./Navigation";
+import {environments} from "./environment";
+
+sessionStorage.setItem('env',JSON.stringify(environments));
 
 ReactDOM.render(<div>
     <BrowserRouter>

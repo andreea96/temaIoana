@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {Button, Form, FormGroup, Col, FormControl, ControlLabel} from 'react-bootstrap';
-import env from './envService';
 import {ToastContainer, toast} from 'react-toastify';
 import {Redirect} from 'react-router';
-import App from "./App";
 
 class Registration extends Component {
 
@@ -20,7 +18,8 @@ class Registration extends Component {
             id: '',
         };
         this.onSubmit = this.onSubmit.bind(this);
-
+        this.redirect=this.redirect.bind(this);
+        this.env=JSON.parse(sessionStorage.getItem('env'));
     }
 
     state = {
@@ -36,7 +35,7 @@ class Registration extends Component {
         const newemail = this.User.email.value;
         const newname = this.User.name.value;
         const newsurname = this.User.surname.value;
-        const newid = this.User.id.value;
+        const newid = this.User.id.value.toUpperCase();
 
         this.User = {
             username: newusername,
@@ -46,17 +45,20 @@ class Registration extends Component {
             surname: newsurname,
             id: newid,
         };
-        env.users.push(this.User);
+        //add new user in compoent's env
+        this.env.users.push(this.User);
         toast.success("User Added", {
             position: toast.POSITION.TOP_CENTER,
             onClose: () => this.redirect(),
-            autoClose: 2500,
+            autoClose: 2000,
         });
 
 
     }
 
     redirect() {
+
+        sessionStorage.setItem('env',JSON.stringify(this.env));
         this.setState({
             userAdded:true,
         });
@@ -152,6 +154,7 @@ class Registration extends Component {
                             </Col>
                         </FormGroup>
                     </Form>
+
                     <ToastContainer closeButton={false} closeOnClick={false} pauseOnHover={false}/>
                 </div>
             )
