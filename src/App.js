@@ -40,7 +40,7 @@ class App extends Component {
 
     componentDidMount(){
 
-        this.env=JSON.parse(sessionStorage.getItem('env'));
+        this.env=JSON.parse(localStorage.getItem('env'));
     }
 
     verificare(e)

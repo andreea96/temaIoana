@@ -1,14 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
 import {
-    Table,
-    Glyphicon,
-    Navbar,
-    Nav,
-    NavItem,
-    Modal,
-    Tab,
-    Tabs,
     Panel,
     ListGroup,
     ListGroupItem
@@ -19,7 +11,7 @@ class UserInfo extends Component {
     constructor(props) {
 
         super(props);
-        this.setUser(this.props.username);
+        this.setUser(localStorage.getItem('activeUser'));
         this.setUserCourses();
         this.setUserLabs();
 
@@ -29,11 +21,11 @@ class UserInfo extends Component {
 
         this.user = new Object();
         this.user.username = username;
-        JSON.parse(sessionStorage.getItem('env')).users.forEach(function (user, i) {
+        JSON.parse(localStorage.getItem('env')).users.forEach(function (user, i) {
             if (user.username === username) {
                 this.user.password = user.password;
                 this.user.name = user.name;
-                this.user.surname = user.name;
+                this.user.surname = user.surname;
                 this.user.email = user.email;
                 this.user.id = user.id;
                 this.user.attendance = user.attendance;
@@ -44,7 +36,7 @@ class UserInfo extends Component {
     }
 
     setUserCourses() {
-        JSON.parse(sessionStorage.getItem('env')).courses.forEach(function (course) {
+        JSON.parse(localStorage.getItem('env')).courses.forEach(function (course) {
 
             if (course.groups.includes(this.user.id))
                 this.user.courses.push(new Object({
@@ -55,7 +47,7 @@ class UserInfo extends Component {
     }
 
     setUserLabs() {
-        JSON.parse(sessionStorage.getItem('env')).laboratories.forEach(function (lab) {
+        JSON.parse(localStorage.getItem('env')).laboratories.forEach(function (lab) {
             if (lab.groups.includes(this.user.id))
                 this.user.labs.push(new Object({
                     "name": lab.name,
@@ -68,7 +60,7 @@ class UserInfo extends Component {
 
         return (<div>
             <h4>Username:</h4>
-            {this.props.username}
+            {localStorage.getItem('activeUser')}
             <h4>Password:</h4>
             {this.user.password}
             <h4>Name:</h4>
@@ -80,8 +72,8 @@ class UserInfo extends Component {
             <h4>ID</h4>
             {this.user.id}
             <h4>Courses</h4>
-
-            {this.user.courses.map(function (course) {
+            {
+                this.user.courses.map(function (course) {
                 return (<Panel>
                         <Panel.Heading>
                             <Panel.Title toggle>
@@ -101,7 +93,7 @@ class UserInfo extends Component {
                         </Panel.Collapse>
                     </Panel>
                 );
-            }, this)}
+                }, this)}
 
             <h4>Laboratories</h4>
             {this.user.labs.map(function (lab) {

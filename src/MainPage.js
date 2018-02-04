@@ -8,7 +8,7 @@ import MenuComponent from './MenuComponent';
 class MainPage extends Component {
     constructor(props){
         super(props);
-        this.env=JSON.parse(sessionStorage.getItem('env'));
+        this.env=JSON.parse(localStorage.getItem('env'));
         this.userCourses=this.getCourses();
         this.userLabs=this.getLaboratories();
         this.setAttendance();
@@ -28,7 +28,7 @@ class MainPage extends Component {
     getUser(){
         let userC;
         this.env.users.map(function (user) {
-            console.log(user.id);
+
             if(user.username===this.props.username){
                 userC=user;
                 }
@@ -101,7 +101,7 @@ class MainPage extends Component {
                 this.env.users[userIndex].attendance.push(id);
             }
         }
-        sessionStorage.setItem('env',JSON.stringify(this.env));
+        localStorage.setItem('env',JSON.stringify(this.env));
 
     }
 

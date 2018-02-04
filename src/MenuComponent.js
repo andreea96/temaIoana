@@ -55,7 +55,7 @@ class MenuComponent extends Component {
                     <Modal.Title>Your info</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <UserInfo username={this.currentUser}/>
+                    <UserInfo/>
                 </Modal.Body>
             </Modal>
 

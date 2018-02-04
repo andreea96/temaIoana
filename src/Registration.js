@@ -19,7 +19,7 @@ class Registration extends Component {
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.redirect=this.redirect.bind(this);
-        this.env=JSON.parse(sessionStorage.getItem('env'));
+        this.env=JSON.parse(localStorage.getItem('env'));
     }
 
     state = {
@@ -59,7 +59,7 @@ class Registration extends Component {
 
     redirect() {
 
-        sessionStorage.setItem('env',JSON.stringify(this.env));
+        localStorage.setItem('env',JSON.stringify(this.env));
         this.setState({
             userAdded:true,
         });
