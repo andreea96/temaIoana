@@ -11,10 +11,10 @@ class MenuComponent extends Component {
         this.state={
             opened: false,
         };
+        this.currentUser=this.getUsername();
     }
 
     openModal(){
-        alert('jdn');
         this.setState({
             opened: true,
         })
@@ -26,13 +26,16 @@ class MenuComponent extends Component {
 
     handleModalClose(){
         this.setState({
-            isOpen: false,
+            opened: false,
         })
+    }
+
+    getUsername(){
+        return localStorage.getItem('activeUser');
     }
 
     render(){
 
-        let isOpen=this.state.opened;
         return(<div>
             <Navbar inverse collapseOnSelect>
                 <Navbar.Header>
@@ -47,7 +50,15 @@ class MenuComponent extends Component {
                         </NavItem>
                     </Nav>
             </Navbar>
-          
+            <Modal show={this.state.opened} onHide={()=>this.handleModalClose()}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Your info</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <UserInfo username={this.currentUser}/>
+                </Modal.Body>
+            </Modal>
+
         </div>);
     }
 
