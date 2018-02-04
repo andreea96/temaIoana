@@ -13,7 +13,7 @@ class App extends Component {
         this.state={
             username: '',
             password: '',
-            loggedUser: (localStorage.getItem('activeUser')===undefined)? false : localStorage.getItem('activeUser'),
+            loggedUser: (localStorage.getItem('activeUser')=== undefined)? false : localStorage.getItem('activeUser'),
         }
 
     }
@@ -69,7 +69,7 @@ class App extends Component {
                 <h1>Welcome!</h1>
                 <Form horizontal>
                     <FormGroup >
-                        <Col componentClass={ControlLabel} sm={2}>
+                        <Col componentClass={ControlLabel} sm={1}>
                             Username
                         </Col>
                         <Col sm={10}>
@@ -78,7 +78,7 @@ class App extends Component {
                     </FormGroup>
 
                     <FormGroup controlId="formHorizontalPassword">
-                        <Col componentClass={ControlLabel} sm={2}>
+                        <Col componentClass={ControlLabel} sm={1}>
                             Password
                         </Col>
                         <Col sm={10}>
@@ -88,17 +88,20 @@ class App extends Component {
 
 
                     <FormGroup>
-                        <Col smOffset={2} sm={10}>
+                        <Col smOffset={1} sm={10}>
                             <Button type="submit" onClick={this.verificare.bind(this)} >Sign in </Button>
                         </Col>
                     </FormGroup>
                 </Form>
 
-                <Col smOffset={2} sm={10}>
+                <Col smOffset={1} sm={10}>
                     <h2>
                         <Label bsStyle='info'><Link to="/register">Don't have an account? Sign up!</Link></Label>
                     </h2>
                 </Col>
+
+
+
             </div>
         );
     }

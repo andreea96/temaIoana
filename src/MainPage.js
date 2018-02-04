@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Table,Glyphicon} from 'react-bootstrap';
+import {Table,Glyphicon,Navbar,Nav,NavItem,} from 'react-bootstrap';
 import {toast,ToastContainer} from 'react-toastify';
+import MenuComponent from './MenuComponent';
 
 
 class MainPage extends Component {
@@ -115,6 +116,7 @@ class MainPage extends Component {
     render(){
 
         return(<div>
+        <MenuComponent />
             <Table responsive>
                 <thead>
                 <tr>

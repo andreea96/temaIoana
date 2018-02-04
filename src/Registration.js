@@ -44,6 +44,7 @@ class Registration extends Component {
             name: newname,
             surname: newsurname,
             id: newid,
+            attendance: [],
         };
         //add new user in compoent's env
         this.env.users.push(this.User);
@@ -78,7 +79,7 @@ class Registration extends Component {
                     <h1>Register</h1>
                     <Form horizontal>
                         <FormGroup>
-                            <Col componentClass={ControlLabel} sm={2}>
+                            <Col componentClass={ControlLabel} sm={1}>
                                 Username
                             </Col>
                             <Col sm={10}>
@@ -90,7 +91,7 @@ class Registration extends Component {
 
                         </FormGroup>
                         <FormGroup controlId="formHorizontalPassword">
-                            <Col componentClass={ControlLabel} sm={2}>
+                            <Col componentClass={ControlLabel} sm={1}>
                                 Password
                             </Col>
                             <Col sm={10}>
@@ -102,7 +103,7 @@ class Registration extends Component {
                         </FormGroup>
 
                         <FormGroup controlId="formHorizontalname">
-                            <Col componentClass={ControlLabel} sm={2}>
+                            <Col componentClass={ControlLabel} sm={1}>
                                 Prenume
                             </Col>
                             <Col sm={10}>
@@ -114,7 +115,7 @@ class Registration extends Component {
                         </FormGroup>
 
                         <FormGroup controlId="formHorizontalsurname">
-                            <Col componentClass={ControlLabel} sm={2}>
+                            <Col componentClass={ControlLabel} sm={1}>
                                 Nume
                             </Col>
                             <Col sm={10}>
@@ -126,7 +127,7 @@ class Registration extends Component {
                         </FormGroup>
 
                         <FormGroup controlId="formHorizontalmail">
-                            <Col componentClass={ControlLabel} sm={2}>
+                            <Col componentClass={ControlLabel} sm={1}>
                                 Email
                             </Col>
                             <Col sm={10}>
@@ -138,7 +139,7 @@ class Registration extends Component {
                         </FormGroup>
 
                         <FormGroup controlId="formHorizontalid">
-                            <Col componentClass={ControlLabel} sm={2}>
+                            <Col componentClass={ControlLabel} sm={1}>
                                 ID(Grupa+serie)
                             </Col>
                             <Col sm={10}>
@@ -149,7 +150,7 @@ class Registration extends Component {
                             </Col>
                         </FormGroup>
                         <FormGroup>
-                            <Col smOffset={2} sm={10}>
+                            <Col smOffset={1} sm={10}>
                                 <Button type="submit" onClick={this.onSubmit}>Register</Button>
                             </Col>
                         </FormGroup>
